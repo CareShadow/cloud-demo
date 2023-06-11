@@ -5,10 +5,7 @@ import cn.itcast.feign.pojo.User;
 import cn.itcast.order.pojo.Order;
 import cn.itcast.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
@@ -45,5 +42,11 @@ public class OrderController {
         // 把user封装到Order中
         order.setUser(user);
         return order;
+    }
+
+    @GetMapping("header")
+    @ResponseBody
+    public String testFiltersHeader(@RequestHeader("Truth") String truth) {
+        return "Truth:" + truth;
     }
 }

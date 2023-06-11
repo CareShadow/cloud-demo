@@ -17,3 +17,5 @@ spring:
           uri: lb://orderservice
           predicates:
             - Path=/order/**
+          filters:
+            - AddRequestHeader=Truth, Itcast is freaking awesome # 请求头 Truth = Itcast is freaking awesome;
