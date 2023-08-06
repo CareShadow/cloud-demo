@@ -11,6 +11,10 @@ spring:
   cloud:
     nacos:
       server-addr: localhost:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8090
+      web-context-unify: false  # 关闭资源整合
 mybatis:
   type-aliases-package: cn.itcast.user.pojo
   configuration:
@@ -20,6 +24,9 @@ logging:
     cn.itcast: debug
   pattern:
     dateformat: MM-dd HH:mm:ss:SSS
+feign:
+  sentinel:
+    enabled: true # 开启feign对于sentinel的支持
 #eureka:
 #  client:
 #    service-url:

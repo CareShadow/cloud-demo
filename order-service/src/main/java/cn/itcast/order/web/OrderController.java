@@ -49,4 +49,28 @@ public class OrderController {
     public String testFiltersHeader(@RequestHeader("Truth") String truth) {
         return "Truth:" + truth;
     }
+
+    @GetMapping("query")
+    public String queryOrder() {
+        // 查询商品
+        orderService.queryGoods();
+        // 查询订单
+        System.out.println("查询订单");
+        return "查询订单成功";
+    }
+
+    @GetMapping("update")
+    public String updateOrder() {
+        return "更新订单成功";
+    }
+
+    @GetMapping("/save")
+    public String saveOrder() {
+        // 查询商品
+        orderService.queryGoods();
+        // 查询订单
+        System.err.println("新增订单");
+        return "新增订单成功";
+    }
+
 }
